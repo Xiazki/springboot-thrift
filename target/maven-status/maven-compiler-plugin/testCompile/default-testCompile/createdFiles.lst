@@ -1,0 +1,5 @@
+com\xiazki\service\ITestService.class
+com\xiazki\thrift\server\ThriftServerRunnerTest.class
+com\xiazki\SpringBootApplicationTest.class
+com\xiazki\AppTest.class
+com\xiazki\service\TestServiceImpl.class

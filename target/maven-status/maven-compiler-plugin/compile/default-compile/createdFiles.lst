@@ -1,0 +1,6 @@
+com\xiazki\thrift\server\configure\ThriftSpringConfiguration.class
+com\xiazki\thrift\server\annotation\ThriftServerService.class
+com\xiazki\thrift\server\annotation\ThriftServerEventHandler.class
+com\xiazki\thrift\server\ThriftServerRunner.class
+com\xiazki\App.class
+com\xiazki\thrift\server\configure\ThriftServerProperties.class
