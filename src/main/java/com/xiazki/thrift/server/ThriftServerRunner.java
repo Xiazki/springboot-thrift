@@ -22,8 +22,8 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
- * @author  xiang.
- * Thrift 服务启动类.
+ * @author xiang.
+ *         Thrift 服务启动类.
  */
 @Slf4j
 @Data
@@ -55,7 +55,7 @@ public class ThriftServerRunner implements CommandLineRunner, DisposableBean {
         log.info("Starting Thrift Server ...");
         initServiceList();
         initThriftEventHandler();
-        initThriftConfigure();
+        initThriftConfiguration();
         if (serviceList.isEmpty()) {
             log.info("No Thrift Service found in context.");
         } else {
@@ -86,7 +86,7 @@ public class ThriftServerRunner implements CommandLineRunner, DisposableBean {
         }
     }
 
-    private void initThriftConfigure() {
+    private void initThriftConfiguration() {
         thriftServerConfig = new ThriftServerConfig();
         thriftServerConfig.setPort(thriftServerProperties.getPort());
         thriftServerConfig.setAcceptorThreadCount(thriftServerProperties.getAcceptorThreadCount());

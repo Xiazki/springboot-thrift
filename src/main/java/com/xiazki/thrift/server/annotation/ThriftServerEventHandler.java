@@ -6,7 +6,7 @@ import java.lang.annotation.*;
 
 /**
  * @author xiang.
- * 用其来标注thrift是事件处理类，可用用MDC日志等
+ * 用其来标注thrift是事件处理类
  * {@link com.facebook.swift.service.ThriftEventHandler} 继承于这个类都会注入ThriftProcessor
  * @see com.facebook.swift.service.ThriftServiceProcessor
  */
@@ -15,5 +15,4 @@ import java.lang.annotation.*;
 @Documented
 @Service
 public @interface ThriftServerEventHandler {
-
 }

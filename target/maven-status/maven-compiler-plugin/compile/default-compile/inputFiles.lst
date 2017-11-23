@@ -1,6 +1,11 @@
 D:\idea_git\mixiong\springboot-thrift\src\main\java\com\xiazki\thrift\server\configure\ThriftSpringConfiguration.java
+D:\idea_git\mixiong\springboot-thrift\src\main\java\com\xiazki\thrift\client\ThriftClientBeanPostProcessor.java
 D:\idea_git\mixiong\springboot-thrift\src\main\java\com\xiazki\App.java
 D:\idea_git\mixiong\springboot-thrift\src\main\java\com\xiazki\thrift\server\configure\ThriftServerProperties.java
+D:\idea_git\mixiong\springboot-thrift\src\main\java\com\xiazki\thrift\client\annotation\ThriftClient.java
+D:\idea_git\mixiong\springboot-thrift\src\main\java\com\xiazki\thrift\client\BeanProxyFactory.java
 D:\idea_git\mixiong\springboot-thrift\src\main\java\com\xiazki\thrift\server\ThriftServerRunner.java
+D:\idea_git\mixiong\springboot-thrift\src\main\java\com\xiazki\thrift\client\configure\ThriftClientProperties.java
 D:\idea_git\mixiong\springboot-thrift\src\main\java\com\xiazki\thrift\server\annotation\ThriftServerEventHandler.java
 D:\idea_git\mixiong\springboot-thrift\src\main\java\com\xiazki\thrift\server\annotation\ThriftServerService.java
+D:\idea_git\mixiong\springboot-thrift\src\main\java\com\xiazki\thrift\client\configure\ThriftClientSpringConfiguration.java
