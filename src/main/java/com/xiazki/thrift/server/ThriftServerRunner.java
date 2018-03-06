@@ -2,7 +2,7 @@ package com.xiazki.thrift.server;
 
 import com.facebook.swift.codec.ThriftCodecManager;
 import com.facebook.swift.service.*;
-import com.xiazki.thrift.server.annotation.ThriftServerService;
+import com.xiazki.thrift.server.annotation.ThriftServerImpl;
 import com.xiazki.thrift.server.configure.ThriftServerProperties;
 import io.airlift.units.Duration;
 import lombok.Data;
@@ -48,6 +48,9 @@ public class ThriftServerRunner implements CommandLineRunner, DisposableBean {
     }
 
     /**
+     *
+     * 注册和启动Thrift服务
+     *
      * @throws Exception SpringBoot 启动时加载
      */
     @Override
@@ -71,7 +74,7 @@ public class ThriftServerRunner implements CommandLineRunner, DisposableBean {
      */
     private void initServiceList() {
         if (serviceList.isEmpty()) {
-            getBeanNamesFromContext(ThriftServerService.class, context.getBeanNamesForAnnotation(ThriftService.class))
+            getBeanNamesFromContext(ThriftServerImpl.class, context.getBeanNamesForAnnotation(ThriftService.class))
                     .forEach(name -> {
                         Object service = context.getBean(name);
                         serviceList.add(service);

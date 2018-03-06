@@ -1,12 +1,12 @@
 package com.xiazki.service;
 
-import com.xiazki.thrift.server.annotation.ThriftServerService;
+import com.xiazki.thrift.server.annotation.ThriftServerImpl;
 import lombok.extern.slf4j.Slf4j;
 
 /**
  * Created by xiang.
  */
-@ThriftServerService
+@ThriftServerImpl
 @Slf4j
 public class TestServiceImpl implements ITestService {
 
