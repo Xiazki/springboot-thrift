@@ -96,6 +96,12 @@
             <artifactId>helix-core</artifactId>
             <version>0.6.4</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.30</version>
+        </dependency>
     </dependencies>
 
     <build>

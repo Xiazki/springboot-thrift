@@ -1,4 +1,4 @@
-package com.xiazki.thrift.zk;
+package com.xiazki.zk;
 
 import com.xiazki.thrift.server.configure.ThriftServerProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

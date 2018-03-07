@@ -1,4 +1,4 @@
-package com.xiazki.thrift.zk.ip;
+package com.xiazki.zk.ip;
 
 /**
  * @author xiang.
@@ -6,6 +6,11 @@ package com.xiazki.thrift.zk.ip;
  */
 public interface IpProvider {
 
+    /**
+     * 获取ip
+     *
+     * @return ip
+     */
     String getServiceIp();
 
 

@@ -1,4 +1,4 @@
-package com.xiazki.thrift.exception;
+package com.xiazki.exception;
 
 /**
  * @author xiang.
