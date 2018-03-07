@@ -4,6 +4,9 @@ import com.facebook.swift.codec.ThriftCodecManager;
 import com.facebook.swift.service.*;
 import com.xiazki.thrift.server.annotation.ThriftServerImpl;
 import com.xiazki.thrift.server.configure.ThriftServerProperties;
+import com.xiazki.zk.ZkRegistThriftServiceFactory;
+import com.xiazki.zk.ip.BalanceOperator;
+import com.xiazki.zk.ip.OptimisticLockBalanceOperator;
 import io.airlift.units.Duration;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +36,8 @@ public class ThriftServerRunner implements CommandLineRunner, DisposableBean {
     private AbstractApplicationContext context;
     @Autowired
     private ThriftServerProperties thriftServerProperties;
+    @Autowired
+    private ZkRegistThriftServiceFactory zkRegistThriftServiceFactory;
     private final List<Object> serviceList = new ArrayList<>();
     private List<ThriftEventHandler> thriftEventHandlers = new ArrayList<>();
     private ThriftServer thriftServer;
@@ -48,7 +53,6 @@ public class ThriftServerRunner implements CommandLineRunner, DisposableBean {
     }
 
     /**
-     *
      * 注册和启动Thrift服务
      *
      * @throws Exception SpringBoot 启动时加载
@@ -84,9 +88,13 @@ public class ThriftServerRunner implements CommandLineRunner, DisposableBean {
     }
 
     private void initThriftEventHandler() {
-        if (thriftEventHandlers.isEmpty()) {
-            //do init
-        }
+        //添加处理服务端负载均衡处理类
+        BalanceOperator balanceOperator = new OptimisticLockBalanceOperator(zkRegistThriftServiceFactory.getServiceName(), zkRegistThriftServiceFactory.getZkClient());
+        ZkServerBalanceHandler zkServerBalanceHandler = new ZkServerBalanceHandler(balanceOperator);
+        thriftEventHandlers.add(zkServerBalanceHandler);
+        //扫描容器
+        //// TODO: 2018/3/7 从容器中找到EventHandler
+
     }
 
     private void initThriftConfiguration() {

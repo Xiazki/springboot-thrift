@@ -2,6 +2,8 @@ package com.xiazki.thrift.server.configure;
 
 import com.xiazki.thrift.server.ThriftServerRunner;
 import com.xiazki.thrift.server.annotation.ThriftServerImpl;
+import com.xiazki.zk.ZkProperties;
+import com.xiazki.zk.ZkRegistThriftServiceFactory;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -13,7 +15,7 @@ import org.springframework.context.annotation.Scope;
  * @author xiang.
  */
 @Configuration
-@EnableConfigurationProperties(value = ThriftServerProperties.class)
+@EnableConfigurationProperties(value = {ThriftServerProperties.class, ZkProperties.class})
 @AutoConfigureOrder
 public class ThriftSpringConfiguration {
 
@@ -24,4 +26,9 @@ public class ThriftSpringConfiguration {
         return new ThriftServerRunner();
     }
 
+    @Bean
+    @Scope("singleton")
+    public ZkRegistThriftServiceFactory zkRegistThriftServiceProcessor() {
+        return new ZkRegistThriftServiceFactory();
+    }
 }

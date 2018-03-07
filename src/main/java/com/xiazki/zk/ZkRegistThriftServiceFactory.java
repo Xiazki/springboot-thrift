@@ -1,8 +1,8 @@
 package com.xiazki.zk;
 
-import com.google.common.net.HostAndPort;
 import com.xiazki.exception.IpMissException;
 import com.xiazki.zk.ip.IpProvider;
+import com.xiazki.zk.ip.ServerIpHostData;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.I0Itec.zkclient.ZkClient;
@@ -21,20 +21,22 @@ import java.net.UnknownHostException;
  */
 @Data
 @Slf4j
-public class ZkRegistThriftServiceProcessor {
+public class ZkRegistThriftServiceFactory {
 
     @Autowired
     private ZkProperties zkProperties;
     private String serviceName;
+    private String servicePath;
     private int servicePort;
     private String serverList;
     private IpProvider ipProvider;
     private ZkSerializer zkSerializer;
+    private ZkClient zkClient;
 
     @PostConstruct
     public void init() {
         propertiesSet();
-        registerService();
+        zkClient = registerService();
     }
 
     private void propertiesSet() {
@@ -71,19 +73,21 @@ public class ZkRegistThriftServiceProcessor {
     }
 
     private ZkClient registerService() {
-        String servicePath = "/" + zkProperties.getServiceName();
+        String serviceRootPath = "/" + zkProperties.getServiceName();
         ZkClient zkClient = new ZkClient(serverList);
-        if (!zkClient.exists(servicePath)) {
-            zkClient.createPersistent(servicePath);
+        if (!zkClient.exists(serviceRootPath)) {
+            zkClient.createPersistent(serviceRootPath);
         }
         String ip = ipProvider.getServiceIp();
         if (ip == null) {
             throw new IpMissException();
         }
         String serviceInstance = System.nanoTime() + "-" + ip;
+        ServerIpHostData serverIpHostData = new ServerIpHostData(ip, servicePort);
         //这里创建临时结点，服务器宕机后zk会清除结点
-        //// TODO: 2018/3/6 zk会再次注册吗？
-        zkClient.createEphemeral(servicePath + "/" + serviceInstance, HostAndPort.fromParts(ip, servicePort));
+        //// TODO: 2018/3/6 需要再次注册吗？
+        servicePath = serviceRootPath + "/" + serviceInstance;
+        zkClient.createEphemeral(servicePath, serverIpHostData);
         log.info("Register service instance {} at port {}", serviceInstance, servicePort);
         return zkClient;
     }
