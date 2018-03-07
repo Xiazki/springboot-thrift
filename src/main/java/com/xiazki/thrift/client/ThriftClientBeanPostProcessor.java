@@ -15,6 +15,8 @@ import org.springframework.stereotype.Component;
 /**
  * @author xiang.
  * @date 2017/11/23
+ * <p>
+ * 向Bean中注入Thrift Client
  */
 @Component
 @Configuration

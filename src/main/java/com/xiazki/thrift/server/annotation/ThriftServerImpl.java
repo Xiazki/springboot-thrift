@@ -11,5 +11,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Service
-public @interface ThriftServerService {
+public @interface ThriftServerImpl {
 }

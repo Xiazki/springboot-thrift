@@ -12,7 +12,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class ThriftServerProperties {
 
     /**
-     * 服务端口号
+     * 暴露服务端口号
      */
     private int port = 8890;
 

@@ -65,7 +65,7 @@ public class BeanProxyFactory<T> implements FactoryBean<T>, InitializingBean {
         try {
             value = createCglibDynamicProxyClass();
         } catch (Exception e) {
-            log.error("create proxy failed ", e);
+            log.error("Create proxy failed.", e);
         }
     }
 
