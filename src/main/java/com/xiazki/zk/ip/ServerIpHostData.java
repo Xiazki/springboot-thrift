@@ -6,7 +6,7 @@ import lombok.Data;
  * @author xiang.
  * @date 2018/3/7
  * <p>
- * 存储 服务Ip及其Host 以及负载计算因子
+ * 服务Ip及其Host 以及负载计算因子
  */
 @Data
 public class ServerIpHostData implements Comparable<ServerIpHostData> {

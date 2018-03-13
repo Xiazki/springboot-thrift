@@ -2,6 +2,7 @@ package com.xiazki.thrift.client;
 
 import com.xiazki.thrift.client.configure.ThriftClientSpringConfiguration;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.config.BeanPostProcessor;
@@ -34,6 +35,11 @@ public class ThriftClientBeanPostProcessor implements DisposableBean, BeanPostPr
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        Class clazz = bean.getClass();
+        if (AopUtils.isAopProxy(bean)) {
+            clazz = AopUtils.getTargetClass(bean);
+        }
+
         return null;
     }
 
