@@ -17,7 +17,7 @@ import java.net.UnknownHostException;
  * @author xiang.
  * @date 2018/3/6
  * <p>
- * 向zk注册Thrift Service 处理器
+ * 向zk注册Thrift Service
  */
 @Data
 @Slf4j
@@ -57,17 +57,14 @@ public class ZkRegistThriftServiceFactory {
         }
 
         if (ipProvider == null) {
-            ipProvider = new IpProvider() {
-                @Override
-                public String getServiceIp() {
-                    try {
-                        InetAddress inetAddress = InetAddress.getLocalHost();
-                        return inetAddress.getHostAddress();
-                    } catch (UnknownHostException e) {
-                        e.printStackTrace();
-                    }
-                    return null;
+            ipProvider = () -> {
+                try {
+                    InetAddress inetAddress = InetAddress.getLocalHost();
+                    return inetAddress.getHostAddress();
+                } catch (UnknownHostException e) {
+                    e.printStackTrace();
                 }
+                return null;
             };
         }
     }

@@ -13,4 +13,10 @@ import java.lang.annotation.*;
 @Documented
 public @interface ThriftClient {
 
+    /**
+     * 服务名称
+     *
+     * @return string
+     */
+    String serviceName();
 }
