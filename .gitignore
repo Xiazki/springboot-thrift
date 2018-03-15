@@ -28,3 +28,4 @@ hibernate.reveng.xml
 log.*
 ~/
 *.pid
+target/*
