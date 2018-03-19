@@ -20,7 +20,7 @@ public class ThriftClientProperties {
      * 客户端 ip 端口号配置
      */
     private HashMap<String,String> config;
-
+    private String zkServerList;
     int poolMaxTotal = 512;
     int poolMaxTotalPerKey = 8;
     int poolMaxIdlePerKey = 6;

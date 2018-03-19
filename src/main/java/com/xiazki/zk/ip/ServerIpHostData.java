@@ -13,16 +13,16 @@ public class ServerIpHostData implements Comparable<ServerIpHostData> {
 
     private String ip;
 
-    private Integer host = 0;
+    private Integer port = 0;
 
     private Integer balance = 0;
 
     public ServerIpHostData() {
     }
 
-    public ServerIpHostData(String ip, Integer host) {
+    public ServerIpHostData(String ip, Integer port) {
         this.ip = ip;
-        this.host = host;
+        this.port = port;
     }
 
     @Override
