@@ -1,7 +1,9 @@
 package com.xiazki.thrift.client.configure;
 
+import com.xiazki.thrift.client.ThriftClientBeanPostProcessor;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -14,5 +16,8 @@ import org.springframework.context.annotation.Configuration;
 @AutoConfigureOrder
 public class ThriftClientSpringConfiguration {
 
-
+    @Bean
+    public ThriftClientBeanPostProcessor thriftClientBeanPostProcessor() {
+        return new ThriftClientBeanPostProcessor();
+    }
 }

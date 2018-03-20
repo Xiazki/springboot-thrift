@@ -1,9 +1,7 @@
 package com.xiazki.thrift.client;
 
-import com.google.common.collect.Lists;
 import com.xiazki.thrift.client.annotation.ThriftClient;
 import com.xiazki.thrift.client.configure.ThriftClientProperties;
-import com.xiazki.thrift.client.configure.ThriftClientSpringConfiguration;
 import com.xiazki.zk.ZkThriftServerDataPool;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -14,12 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
-import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -32,8 +26,8 @@ import java.util.concurrent.ConcurrentHashMap;
 @Slf4j
 public class ThriftClientBeanPostProcessor implements DisposableBean, BeanPostProcessor, ApplicationContextAware {
 
+    @Autowired
     private ThriftClientProperties thriftClientProperties;
-
     private ApplicationContext applicationContext;
     private ConcurrentHashMap<String, BeanProxyFactory<?>> proxyFactoryConcurrentHashMap = new ConcurrentHashMap<>();
     private ConcurrentHashMap<String, ZkThriftServerDataPool> poolConcurrentHashMap = new ConcurrentHashMap<>();
