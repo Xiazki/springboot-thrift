@@ -1,5 +1,4 @@
 # springboot-thrift
-功能尚不完善，持续开发中
 # 使用
 核心注解 </br>
 @ThriftClient </br>
