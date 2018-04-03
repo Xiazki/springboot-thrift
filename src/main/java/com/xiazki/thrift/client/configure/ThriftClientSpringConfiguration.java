@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author xiang.
  * @date 2017/11/23
+ * 移动
  */
 
 @Configuration

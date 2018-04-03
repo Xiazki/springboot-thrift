@@ -53,6 +53,7 @@ public class ThriftClientBeanPostProcessor implements DisposableBean, BeanPostPr
             ThriftClient thriftClient = field.getAnnotation(ThriftClient.class);
             if (this != null) {
                 try {
+                    //注入
                     field.set(bean, this.refer(thriftClient, field.getType()));
                     //// TODO: 2018/3/19 异常处理
                 } catch (IllegalAccessException e) {

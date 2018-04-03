@@ -5,7 +5,10 @@
     <groupId>com.xiazki</groupId>
     <artifactId>springboot-thrift-core</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <modules>
+        <module>zk</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <name>springboot-thrift-core</name>
     <url>http://maven.apache.org</url>
