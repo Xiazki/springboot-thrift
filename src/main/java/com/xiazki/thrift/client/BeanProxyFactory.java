@@ -5,7 +5,7 @@ import com.facebook.swift.service.ThriftClientManager;
 import com.google.common.net.HostAndPort;
 import com.xiazki.thrift.client.annotation.ThriftClient;
 import com.xiazki.zk.ZkThriftServerDataPool;
-import com.xiazki.zk.ip.ServerIpHostData;
+import com.xiazki.zk.balance.ServerIpHostData;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.cglib.proxy.Enhancer;

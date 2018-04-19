@@ -1,8 +1,8 @@
 package com.xiazki.zk;
 
-import com.xiazki.exception.IpMissException;
-import com.xiazki.zk.ip.IpProvider;
-import com.xiazki.zk.ip.ServerIpHostData;
+import com.xiazki.zk.exception.IpMissException;
+import com.xiazki.zk.balance.IpProvider;
+import com.xiazki.zk.balance.ServerIpHostData;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.I0Itec.zkclient.ZkClient;

@@ -1,4 +1,4 @@
-package com.xiazki.zk.ip;
+package com.xiazki.zk.balance;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;

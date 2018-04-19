@@ -2,7 +2,7 @@ package com.xiazki.thrift.server;
 
 import com.facebook.nifty.core.RequestContext;
 import com.facebook.swift.service.ThriftEventHandler;
-import com.xiazki.zk.ip.BalanceOperator;
+import com.xiazki.zk.balance.BalanceOperator;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
