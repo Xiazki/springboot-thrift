@@ -1,4 +1,4 @@
-# springboot-thrift
+# springboot-thrift 重新开发中
 # 使用
 核心注解 </br>
 @ThriftClient </br>
